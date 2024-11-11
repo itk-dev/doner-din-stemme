@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-55](https://github.com/itk-dev/giv-din-stemme/pull/55)
+  * Added Architectural decision record (ADR)
+  * Added ADR on donation pre-qualification
 * [PR-54](https://github.com/itk-dev/giv-din-stemme/pull/54)
   Make Whisper guess and score into individual fields on entity.
 * [PR-53](https://github.com/itk-dev/giv-din-stemme/pull/53)
