@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.0.0] - 2024-11-29
+
 * [PR-55](https://github.com/itk-dev/giv-din-stemme/pull/55)
   * Added Architectural decision record (ADR)
   * Added ADR on donation pre-qualification
@@ -40,7 +42,7 @@ See [keep a changelog] for information about writing changes to this log.
 * [PR-41](https://github.com/itk-dev/giv-din-stemme/pull/41)
   Toggle button icon change
 * [PR-21](https://github.com/itk-dev/giv-din-stemme/pull/21)
-  Added web accessiblity statement
+  Added web accessibility statement
 * [PR-38](https://github.com/itk-dev/giv-din-stemme/pull/38)
   Added file data to metadata.
 * [PR-35](https://github.com/itk-dev/giv-din-stemme/pull/35)
@@ -76,3 +78,8 @@ See [keep a changelog] for information about writing changes to this log.
 * [PR-13](https://github.com/itk-dev/giv-din-stemme/pull/13)
   Mobile optimization.
 * Initial project.
+
+[keep a changelog]: https://keepachangelog.com/en/1.1.0/
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/main...develop
+[//]: # ([1.0.1]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...1.0.1)
+[1.0.0]: https://github.com/itk-dev/doner-din-stemme/releases/tag/1.0.0
