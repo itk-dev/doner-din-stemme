@@ -4,7 +4,13 @@ services:
       - PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
       - PHP_POST_MAX_SIZE=18M
       - PHP_UPLOAD_MAX_FILESIZE=15M
+    volumes:
+      - ../../shared/settings.local.php:/app/web/sites/default/settings.local.php
+      - ../../shared/files:/app/web/sites/default/files
+      - ../../shared/private:/app/private
 
   nginx:
     environment:
       - NGINX_MAX_BODY_SIZE=20M
+    volumes:
+      - ../../shared/files:/app/web/sites/default/files
