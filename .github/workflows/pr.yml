@@ -1,5 +1,9 @@
 on: pull_request
+
 name: Review
+
+env:
+  COMPOSE_USER: runner
 
 jobs:
   changelog:
