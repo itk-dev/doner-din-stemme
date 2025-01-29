@@ -32,7 +32,7 @@ jobs:
 
       - name: Coding standards
         run: |
-          docker run --rm --volume "$PWD:/md" peterdavehello/markdownlint markdownlint $(git ls-files *.md)
+          docker run --rm --volume "$PWD:/md" itkdev/markdownlint $(git ls-files *.md)
 
   composer-normalize:
     name: composer-normalize
