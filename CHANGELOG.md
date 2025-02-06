@@ -8,6 +8,12 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-56](https://github.com/itk-dev/doner-din-stemme/pull/56)
+  * Modifies qualify command to only transcribe donations.
+  * Makes commands calculating each of the metrics (WER, CER and similar_text)
+
+## [1.0.0] 2024-11-29
+
 * [PR-55](https://github.com/itk-dev/giv-din-stemme/pull/55)
   * Added Architectural decision record (ADR)
   * Added ADR on donation pre-qualification
@@ -76,3 +82,7 @@ See [keep a changelog] for information about writing changes to this log.
 * [PR-13](https://github.com/itk-dev/giv-din-stemme/pull/13)
   Mobile optimization.
 * Initial project.
+
+
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/itk-dev/doner-din-stemme/releases/tag/1.0.0
