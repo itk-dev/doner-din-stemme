@@ -68,7 +68,7 @@ giv_din_stemme.test:
     _controller: '\Drupal\giv_din_stemme\Controller\GivDinStemmeController::test'
     _title: 'Test'
   requirements:
-    _permission: 'access content'
+    _permission: 'access giv din stemme'
   options:
     # The content depends on the browser user agent, so we disable caching.
     no_cache: TRUE
