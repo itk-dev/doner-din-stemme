@@ -211,8 +211,9 @@ The custom Giv din stemme module adds commands using
 [Whisper](https://github.com/itk-dev/whipser-docker) for qualifying donations.
 
 Qualifying is done by asking Whisper to transcribe the donation and then
-comparing it to the original text using PHPs
-[similar_text](https://www.php.net/manual/en/function.similar-text.php).
+comparing it to the original text using word error rate(WER) and
+character error rate(CER). For more details on these, see
+[itk-dev/sentence-similarity-metrics](https://github.com/itk-dev/sentence-similarity-metrics?tab=readme-ov-file#metrics).
 
 ### Configuration
 
@@ -220,7 +221,11 @@ Before using the qualifying command you must configure
 
 * Whisper API endpoint
 * Whisper API key
-* Threshold for when donations should be automatically validated (int or null/unset to disable)
+* Similar text score threshold for when donations should be validated (int or null/unset to disable).
+* WER threshold for when donations should be validated (float or null/unset to disable).
+* CER threshold for when donations should be validated (float or null/unset to disable).
+
+*Note* that a high similar text score is good, but a lower WER and CER is good.
 
 ```php
 // settings.local.php
@@ -228,7 +233,9 @@ Before using the qualifying command you must configure
 
 $settings['itkdev_whisper_api_endpoint'] = '…';
 $settings['itkdev_whisper_api_key'] = '…';
-$settings['itkdev_automatic_validation_threshold'] = 90;
+$settings['itkdev_automatic_validation_threshold_similar_text_score'] = 80;
+$settings['itkdev_automatic_validation_threshold_wer'] = 0.20;
+$settings['itkdev_automatic_validation_threshold_cer'] = 0.20;
 ```
 
 See 1Password for both api endpoint and key.
@@ -237,24 +244,48 @@ See 1Password for both api endpoint and key.
 
 Qualify all unqualified donations with
 
-```shell name="gds-qualify-all-donations"
-itkdev-docker-compose drush giv_din_stemme:qualify:all
+```shell name="gds-qualify-transcribe-all-donations"
+itkdev-docker-compose drush giv_din_stemme:qualify:transcribe
 ```
 
 or re-qualify donations by adding the `--re-qualify` flag.
 
 Qualify a specific donation with
 
-```shell name="gds-qualify-specific-donations"
-itkdev-docker-compose drush giv_din_stemme:qualify:donation DONATION_ID
+```shell name="gds-qualify-transcribe-specific-donation"
+itkdev-docker-compose drush giv_din_stemme:qualify:transcribe:id DONATION_ID
 ```
 
-**Note** that both qualifying commands will validate donations if they result
-in a `similar_text` score that exceeds the configured threshold level.
+Calculate similar text score with
+
+```shell name="gds-qualify-similar-text-score"
+itkdev-docker-compose drush giv-din-stemme:qualify:similar-text-score
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+Calculate WER with
+
+```shell name="gds-qualify-wer"
+itkdev-docker-compose drush giv-din-stemme:qualify:wer
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+Calculate CER with
+
+```shell name="gds-qualify-cer"
+itkdev-docker-compose drush giv-din-stemme:qualify:cer
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+**Note** that both error rate commands will validate donations if they result
+in a score that does not exceed the configured threshold level.
 The commands will never invalidate donations.
 
-To continuously qualify donations consider running the qualify all donations
-command via a cronjob.
+To continuously qualify donations consider running the qualifying commands
+via a cronjobs.
 
 ## Coding standards
 
