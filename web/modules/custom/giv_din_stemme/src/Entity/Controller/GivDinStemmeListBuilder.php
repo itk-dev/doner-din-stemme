@@ -71,7 +71,7 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
       'whisper_guess' => $this->t('Whisper guess'),
 
       'whisper_guess_similar_text_score' => [
-        'data' => $this->t('Similar text score'),
+        'data' => $this->t('1 - Similar text score'),
         'field' => 'whisper_guess_similar_text_score',
       ],
       'whisper_guess_word_error_rate' => [
@@ -104,9 +104,9 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     }
 
     $row['whisper_guess'] = $entity->getWhisperGuess() ?? '-';
-    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? round($entity->getWhisperGuessSimilarTextScore(), 2) . '%' : '-';
-    $row['word_error_rate'] = $entity->getWhisperGuessWordErrorRate() ? round($entity->getWhisperGuessWordErrorRate(), 2) : '-';
-    $row['character_error_rate'] = $entity->getWhisperGuessCharacterErrorRate() ? round($entity->getWhisperGuessCharacterErrorRate(), 2) : '-';
+    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? (100 - round($entity->getWhisperGuessSimilarTextScore(), 2)) / 100 : '-';
+    $row['word_error_rate'] = !is_null($entity->getWhisperGuessWordErrorRate()) ? round($entity->getWhisperGuessWordErrorRate(), 2) : '-';
+    $row['character_error_rate'] = !is_null($entity->getWhisperGuessCharacterErrorRate()) ? round($entity->getWhisperGuessCharacterErrorRate(), 2) : '-';
     $row['validated'] = $entity->getValidatedTime() ? $this->t('Yes') : $this->t('No');
 
     return $row + parent::buildRow($entity);
