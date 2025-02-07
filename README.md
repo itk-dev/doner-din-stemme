@@ -225,7 +225,8 @@ Before using the qualifying command you must configure
 * WER threshold for when donations should be validated (float or null/unset to disable).
 * CER threshold for when donations should be validated (float or null/unset to disable).
 
-*Note* that a high similar text score is good, but a lower WER and CER is good.
+*Note* that similar text score is percentage based and a high percentage is good.
+WER and CER are instead decimals where a low score is better.
 
 ```php
 // settings.local.php
@@ -256,6 +257,10 @@ Qualify a specific donation with
 itkdev-docker-compose drush giv_din_stemme:qualify:transcribe:id DONATION_ID
 ```
 
+**Note** that all the following qualifying commands will validate donations
+if they result in a score that does not exceed the configured threshold level.
+The commands will never invalidate donations.
+
 Calculate similar text score with
 
 ```shell name="gds-qualify-similar-text-score"
@@ -279,10 +284,6 @@ itkdev-docker-compose drush giv-din-stemme:qualify:cer
 ```
 
 or re-calculate rates by adding the `--re-calculate` flag.
-
-**Note** that both error rate commands will validate donations if they result
-in a score that does not exceed the configured threshold level.
-The commands will never invalidate donations.
 
 To continuously qualify donations consider running the qualifying commands
 via a cronjobs.
