@@ -71,7 +71,7 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
       'whisper_guess' => $this->t('Whisper guess'),
 
       'whisper_guess_similar_text_score' => [
-        'data' => $this->t('1 - Similar text score'),
+        'data' => $this->t('Dissimilar text score'),
         'field' => 'whisper_guess_similar_text_score',
       ],
       'whisper_guess_word_error_rate' => [
