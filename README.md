@@ -211,9 +211,22 @@ The custom Giv din stemme module adds commands using
 [Whisper](https://github.com/itk-dev/whipser-docker) for qualifying donations.
 
 Qualifying is done by asking Whisper to transcribe the donation and then
-comparing it to the original text using word error rate(WER) and
-character error rate(CER). For more details on these, see
+comparing it to the original text, using one of three metrics.
+
+### Similar text score
+
+[similar_text](https://www.php.net/manual/en/function.similar-text.php) gives similarity
+between two sentences as a percentage. That is, a high percentage means the sentences are similar.
+See [ADR-002](/docs/adr/002-whisper-score-via-similar-text.md) for more details.
+
+**Note**: to align with the WER and CER scores beneath, we report the complimentary,
+i.e. the dissimilarity, on the list of donations.
+
+### WER and CER
+
+Word error rate(WER) and character error rate(CER). For more details on these, see
 [itk-dev/sentence-similarity-metrics](https://github.com/itk-dev/sentence-similarity-metrics?tab=readme-ov-file#metrics).
+This is a number between 0 and 1  A low score means the transcribed sentence is similar to the original one.
 
 ### Configuration
 
@@ -224,9 +237,6 @@ Before using the qualifying command you must configure
 * Similar text score threshold for when donations should be validated (int or null/unset to disable).
 * WER threshold for when donations should be validated (float or null/unset to disable).
 * CER threshold for when donations should be validated (float or null/unset to disable).
-
-*Note* that similar text score is percentage based and a high percentage is good.
-WER and CER are instead decimals where a low score is better.
 
 ```php
 // settings.local.php
