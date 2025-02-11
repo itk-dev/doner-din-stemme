@@ -107,7 +107,7 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     // To align the similar_text score with WER and CER we report the
     // dissimilarity score as a decimal, such that all three metrics
     // have 0 being good and 1 (or more) being bad.
-    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? (100 - round($entity->getWhisperGuessSimilarTextScore(), 2)) / 100 : '-';
+    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? round(((100 - $entity->getWhisperGuessSimilarTextScore()) / 100), 2) : '-';
     $row['word_error_rate'] = !is_null($entity->getWhisperGuessWordErrorRate()) ? round($entity->getWhisperGuessWordErrorRate(), 2) : '-';
     $row['character_error_rate'] = !is_null($entity->getWhisperGuessCharacterErrorRate()) ? round($entity->getWhisperGuessCharacterErrorRate(), 2) : '-';
     $row['validated'] = $entity->getValidatedTime() ? $this->t('Yes') : $this->t('No');
