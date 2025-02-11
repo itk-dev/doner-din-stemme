@@ -120,7 +120,7 @@
         },
         "patches": {
             "drupal/address": {
-                "Country field should display the Select option to match core behavior (https://www.drupal.org/project/address/issues/2995992)": "patches/address_select_option.patch"
+                "Country field should display the Select option to match core behavior (https://www.drupal.org/project/address/issues/2995992#comment-15641090) with empty option modified to align with Drupal\\Core\\Field\\Plugin\\Field\\FieldWidget\\OptionsSelectWidget": "patches/address_select_option.patch"
             },
             "drupal/core": {
                 "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2024-07-03/drupal-3150540-42.patch"
