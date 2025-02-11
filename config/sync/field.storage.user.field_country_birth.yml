@@ -1,0 +1,19 @@
+uuid: ec1b01c1-da48-4565-a7c1-22f291df3cfd
+langcode: da
+status: true
+dependencies:
+  module:
+    - address
+    - user
+id: user.field_country_birth
+field_name: field_country_birth
+entity_type: user
+type: address_country
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
