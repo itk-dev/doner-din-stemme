@@ -22,7 +22,7 @@
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^13.0",
         "itk-dev/sentence-similarity-metrics": "^0.1.0",
-        "itk-dev/web_accessibility_statement": "dev-feature/drupal-11-support"
+        "itk-dev/web_accessibility_statement": "^1.3"
     },
     "require-dev": {
         "drupal/core-dev": "^11.0",

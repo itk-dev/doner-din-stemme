@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-57](https://github.com/itk-dev/doner-din-stemme/pull/57)
+  * Adds `country_birth` user field
+  * Updates to latest `itk-dev/web_accessibility_statement`.
 * [PR-56](https://github.com/itk-dev/doner-din-stemme/pull/56)
   * Modifies qualify command to only transcribe donations.
   * Makes commands calculating each of the metrics (WER, CER and similar_text)
