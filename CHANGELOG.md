@@ -8,6 +8,10 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-56](https://github.com/itk-dev/doner-din-stemme/pull/56)
+  * Modifies qualify command to only transcribe donations.
+  * Makes commands calculating each of the metrics (WER, CER and similar_text)
+
 ## [1.0.0] - 2024-11-29
 
 * [PR-55](https://github.com/itk-dev/giv-din-stemme/pull/55)
@@ -79,7 +83,6 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[keep a changelog]: https://keepachangelog.com/en/1.1.0/
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/main...develop
-[//]: # ([1.0.1]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...1.0.1)
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...HEAD
 [1.0.0]: https://github.com/itk-dev/doner-din-stemme/releases/tag/1.0.0
+[keep a changelog]: https://keepachangelog.com/en/1.1.0/

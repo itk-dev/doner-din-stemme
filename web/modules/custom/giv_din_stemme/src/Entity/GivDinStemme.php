@@ -108,6 +108,14 @@ class GivDinStemme extends ContentEntityBase implements ContentEntityInterface {
       ->setLabel(t('Similar text score'))
       ->setDescription(t('Similar text score between original text and whisper guess'));
 
+    $fields['whisper_guess_word_error_rate'] = BaseFieldDefinition::create('float')
+      ->setLabel(t('Word error rate'))
+      ->setDescription(t('Word error rate between original text and whisper guess'));
+
+    $fields['whisper_guess_character_error_rate'] = BaseFieldDefinition::create('float')
+      ->setLabel(t('Character error rate'))
+      ->setDescription(t('Character error rate between original text and whisper guess'));
+
     return $fields;
   }
 
@@ -191,6 +199,34 @@ class GivDinStemme extends ContentEntityBase implements ContentEntityInterface {
    */
   public function setWhisperGuessSimilarTextScore(?float $score): void {
     $this->set('whisper_guess_similar_text_score', $score);
+  }
+
+  /**
+   * Get whisper word error rate.
+   */
+  public function getWhisperGuessWordErrorRate() {
+    return $this->get('whisper_guess_word_error_rate')->value;
+  }
+
+  /**
+   * Set whisper word error rate.
+   */
+  public function setWhisperGuessWordErrorRate(?float $rate): void {
+    $this->set('whisper_guess_word_error_rate', $rate);
+  }
+
+  /**
+   * Get whisper character error rate.
+   */
+  public function getWhisperGuessCharacterErrorRate() {
+    return $this->get('whisper_guess_character_error_rate')->value;
+  }
+
+  /**
+   * Set whisper character error rate.
+   */
+  public function setWhisperGuessCharacterErrorRate(?float $rate): void {
+    $this->set('whisper_guess_character_error_rate', $rate);
   }
 
 }

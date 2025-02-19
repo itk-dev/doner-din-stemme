@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aeb8e00d421204059d06b0cdd017aeb9",
+    "content-hash": "805bfe45a542ca49cc0ed90d72795c77",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2887,6 +2887,51 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2024-06-28T20:10:30+00:00"
+        },
+        {
+            "name": "itk-dev/sentence-similarity-metrics",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itk-dev/sentence-similarity-metrics.git",
+                "reference": "1446f1653f4aac5987724cf621a6a30b1c479ec2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itk-dev/sentence-similarity-metrics/zipball/1446f1653f4aac5987724cf621a6a30b1c479ec2",
+                "reference": "1446f1653f4aac5987724cf621a6a30b1c479ec2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.45",
+                "friendsofphp/php-cs-fixer": "^3.64",
+                "phpunit/phpunit": "^11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ItkDev\\SentenceSimilarityMetrics\\": "src/Metrics"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeppe Kuhlmann Andersen",
+                    "email": "jekua@aarhus.dk"
+                }
+            ],
+            "description": "Sentence similarity metrics",
+            "support": {
+                "issues": "https://github.com/itk-dev/sentence-similarity-metrics/issues",
+                "source": "https://github.com/itk-dev/sentence-similarity-metrics/tree/0.1.0"
+            },
+            "time": "2025-02-04T09:54:00+00:00"
         },
         {
             "name": "itk-dev/web_accessibility_statement",
@@ -12624,7 +12669,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

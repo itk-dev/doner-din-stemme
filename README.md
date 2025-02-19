@@ -211,8 +211,22 @@ The custom Giv din stemme module adds commands using
 [Whisper](https://github.com/itk-dev/whipser-docker) for qualifying donations.
 
 Qualifying is done by asking Whisper to transcribe the donation and then
-comparing it to the original text using PHPs
-[similar_text](https://www.php.net/manual/en/function.similar-text.php).
+comparing it to the original text, using one of three metrics.
+
+### Similar text score
+
+[similar_text](https://www.php.net/manual/en/function.similar-text.php) gives similarity
+between two sentences as a percentage. That is, a high percentage means the sentences are similar.
+See [ADR-002](/docs/adr/002-whisper-score-via-similar-text.md) for more details.
+
+**Note**: to align with the WER and CER scores beneath, we report the complimentary,
+i.e. the dissimilarity, on the list of donations.
+
+### WER and CER
+
+Word error rate(WER) and character error rate(CER). For more details on these, see
+[itk-dev/sentence-similarity-metrics](https://github.com/itk-dev/sentence-similarity-metrics?tab=readme-ov-file#metrics).
+This is a number between 0 and 1  A low score means the transcribed sentence is similar to the original one.
 
 ### Configuration
 
@@ -220,7 +234,9 @@ Before using the qualifying command you must configure
 
 * Whisper API endpoint
 * Whisper API key
-* Threshold for when donations should be automatically validated (int or null/unset to disable)
+* Similar text score threshold for when donations should be validated (int or null/unset to disable).
+* WER threshold for when donations should be validated (float or null/unset to disable).
+* CER threshold for when donations should be validated (float or null/unset to disable).
 
 ```php
 // settings.local.php
@@ -228,7 +244,9 @@ Before using the qualifying command you must configure
 
 $settings['itkdev_whisper_api_endpoint'] = '…';
 $settings['itkdev_whisper_api_key'] = '…';
-$settings['itkdev_automatic_validation_threshold'] = 90;
+$settings['itkdev_automatic_validation_threshold_similar_text_score'] = 80;
+$settings['itkdev_automatic_validation_threshold_wer'] = 0.20;
+$settings['itkdev_automatic_validation_threshold_cer'] = 0.20;
 ```
 
 See 1Password for both api endpoint and key.
@@ -237,24 +255,50 @@ See 1Password for both api endpoint and key.
 
 Qualify all unqualified donations with
 
-```shell name="gds-qualify-all-donations"
-itkdev-docker-compose drush giv_din_stemme:qualify:all
+```shell name="gds-qualify-transcribe-all-donations"
+itkdev-docker-compose drush giv_din_stemme:qualify:transcribe
 ```
 
 or re-qualify donations by adding the `--re-qualify` flag.
 
 Qualify a specific donation with
 
-```shell name="gds-qualify-specific-donations"
-itkdev-docker-compose drush giv_din_stemme:qualify:donation DONATION_ID
+```shell name="gds-qualify-transcribe-specific-donation"
+itkdev-docker-compose drush giv_din_stemme:qualify:transcribe:id DONATION_ID
 ```
 
-**Note** that both qualifying commands will validate donations if they result
-in a `similar_text` score that exceeds the configured threshold level.
+**Note** the `similar_text` qualifying command will validate donations
+if they result in a score that surpasses the configured threshold level.
+The `wer` and `cer` will validate the donation if the score does not
+surpass the configured threshold levels.
 The commands will never invalidate donations.
 
-To continuously qualify donations consider running the qualify all donations
-command via a cronjob.
+Calculate similar text score with
+
+```shell name="gds-qualify-similar-text-score"
+itkdev-docker-compose drush giv-din-stemme:qualify:similar-text-score
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+Calculate WER with
+
+```shell name="gds-qualify-wer"
+itkdev-docker-compose drush giv-din-stemme:qualify:wer
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+Calculate CER with
+
+```shell name="gds-qualify-cer"
+itkdev-docker-compose drush giv-din-stemme:qualify:cer
+```
+
+or re-calculate rates by adding the `--re-calculate` flag.
+
+To continuously qualify donations consider running the qualifying commands
+via a cronjobs.
 
 ## Coding standards
 
