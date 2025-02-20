@@ -78,16 +78,16 @@ function giv_din_stemme_theme(array $existing, string $type, string $theme, stri
 /**
  * Implements hook_theme_suggestions_form_alter().
  */
-function giv_din_stemme_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function giv_din_stemme_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
   if (isset($variables['element']['#form_id'])) {
     $suggestions[] = 'form__' . $variables['element']['#form_id'];
-  };
+  }
 }
 
 /**
  * Implements hook_form_FORMID_alter().
  */
-function giv_din_stemme_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function giv_din_stemme_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
   // Add redirect submit handler.
   $form['actions']['submit']['#submit'][] = 'giv_din_stemme_redirect';
 
@@ -127,7 +127,7 @@ function giv_din_stemme_form_user_form_alter(&$form, FormStateInterface $form_st
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  *   The state of the form.
  */
-function giv_din_stemme_redirect(array &$form, FormStateInterface $form_state) {
+function giv_din_stemme_redirect(array &$form, FormStateInterface $form_state): void {
   $form_state->setRedirect('giv_din_stemme.permissions');
 }
 
