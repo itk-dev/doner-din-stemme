@@ -57,7 +57,8 @@
             "drupal/core-project-message": true,
             "ergebnis/composer-normalize": true,
             "php-http/discovery": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
         },
         "sort-packages": true
     },
