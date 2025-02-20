@@ -1,0 +1,92 @@
+diff --git a/src/Element/Address.php b/src/Element/Address.php
+index 9d68f3c..9c5156e 100644
+--- a/src/Element/Address.php
++++ b/src/Element/Address.php
+@@ -115,9 +115,7 @@ class Address extends FormElement {
+     // Preselect the default country to ensure it's present in the value.
+     $element['#default_value'] = (array) $element['#default_value'];
+     $element['#default_value'] = self::applyDefaults($element['#default_value']);
+-    if (empty($element['#default_value']['country_code']) && $element['#required']) {
+-      $element['#default_value']['country_code'] = Country::getDefaultCountry($element['#available_countries']);
+-    }
++
+     // Any input with a NULL or missing country_code is considered invalid.
+     // Even if the element is optional and no country is selected, the
+     // country_code would be an empty string, not NULL.
+diff --git a/src/Element/Country.php b/src/Element/Country.php
+index 60d48da..a328ac7 100644
+--- a/src/Element/Country.php
++++ b/src/Element/Country.php
+@@ -73,18 +73,14 @@ class Country extends FormElement {
+       $available_countries = array_combine($available_countries, $available_countries);
+       $country_list = array_intersect_key($country_list, $available_countries);
+     }
+-    if (empty($element['#default_value']) && $element['#required']) {
+-      // Fallback to the first country in the list if the default country
+-      // is empty even though the field is required.
+-      $element['#default_value'] = key($country_list);
+-    }
+
+     $element['#tree'] = TRUE;
+     // Hide the dropdown when there is only one possible value.
+-    if (count($country_list) == 1 && $element['#required']) {
++    // Filter out empty select options before count.
++    if (count(array_filter($country_list)) == 1 && $element['#required']) {
+       $element['country_code'] = [
+         '#type' => 'hidden',
+-        '#value' => key($country_list),
++        '#value' => key(array_filter($available_countries)),
+       ];
+     }
+     else {
+@@ -95,6 +91,8 @@ class Country extends FormElement {
+         '#description_display' => $element['#description_display'],
+         '#options' => $country_list,
+         '#default_value' => $element['#default_value'],
++        '#empty_value' => '',
++        '#empty_option' => t('- Select a value -'),
+         '#required' => $element['#required'],
+         '#limit_validation_errors' => [],
+         '#attributes' => [
+@@ -103,9 +101,7 @@ class Country extends FormElement {
+         ],
+         '#weight' => -100,
+       ];
+-      if (!$element['#required']) {
+-        $element['country_code']['#empty_value'] = '';
+-      }
++
+       if (!empty($element['#ajax'])) {
+         $element['country_code']['#ajax'] = $element['#ajax'];
+         unset($element['#ajax']);
+diff --git a/tests/src/FunctionalJavascript/AddressDefaultWidgetTest.php b/tests/src/FunctionalJavascript/AddressDefaultWidgetTest.php
+index 8422abc..c97c14e 100644
+--- a/tests/src/FunctionalJavascript/AddressDefaultWidgetTest.php
++++ b/tests/src/FunctionalJavascript/AddressDefaultWidgetTest.php
+@@ -240,6 +240,7 @@ class AddressDefaultWidgetTest extends WebDriverTestBase {
+     $this->assertOptionSelected($field_name . '[0][address][administrative_area]', $address['administrative_area']);
+     $this->assertSession()->fieldValueEquals($field_name . '[0][address][postal_code]', $address['postal_code']);
+     $this->assertOptionSelected($field_name . '[0][address][country_code]', $country_code);
++
+     // Confirm that it is possible to switch the country to France, and back.
+     $this->getSession()->getPage()->fillField($field_name . '[0][address][country_code]', 'FR');
+     $this->assertSession()->assertWaitOnAjaxRequest();
+@@ -248,6 +249,18 @@ class AddressDefaultWidgetTest extends WebDriverTestBase {
+     $this->assertSession()->assertWaitOnAjaxRequest();
+     $this->assertSession()->fieldExists($field_name . '[0][address][administrative_area]');
+
++    // Required field with no default.
++    // Country should be required and set to empty value option.
++    $this->field->setDefaultValue([]);
++    $this->field->setRequired(TRUE);
++    $this->field->save();
++    $this->drupalGet($this->nodeAddUrl);
++    $this->assertNotEmpty((bool) $this->xpath('//select[@name="' . $field_name . '[0][address][country_code]" and boolean(@required)]'), 'Country is shown as required.');
++    $this->assertOptionSelected($field_name . '[0][address][country_code]', '', 'The empty option is selected.');
++    // All countries should be present in the form.
++    $countries = array_keys($this->countryRepository->getList());
++    $this->assertOptions($field_name . '[0][address][country_code]', $countries, 'All countries are present.');
++
+     // Test the widget with only one available country.
+     // Since the field is required, the country selector should be hidden.
+     $countries = ['US'];

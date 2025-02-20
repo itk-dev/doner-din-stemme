@@ -235,6 +235,7 @@ class GivDinStemmeController extends ControllerBase {
       $dialect = $user->get('field_dialects')->value;
       $gender = $user->get('field_gender')->value;
       $postalCode = $user->get('field_postal_code')->value;
+      $countryBirth = $user->get('field_country_birth')->value;
 
       $entity->set('metadata', json_encode([
         'text' => $partTextToRead,
@@ -245,6 +246,7 @@ class GivDinStemmeController extends ControllerBase {
         'dialect' => $dialect,
         'gender' => $gender,
         'postal_code' => $postalCode,
+        'country_birth' => $countryBirth,
       ]));
 
       $entity->save();

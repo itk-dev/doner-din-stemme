@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_birth_year
+    - field.field.user.user.field_country_birth
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
     - field.field.user.user.field_postal_code
   module:
+    - address
     - path
     - user
 id: user.user.default
@@ -23,6 +25,12 @@ content:
   field_birth_year:
     type: options_select
     weight: 34
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country_birth:
+    type: address_country_default
+    weight: 35
     region: content
     settings: {  }
     third_party_settings: {  }
