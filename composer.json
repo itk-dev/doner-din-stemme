@@ -20,6 +20,7 @@
         "drupal/pathauto": "^1.13",
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^13.0",
+        "itk-dev/sentence-similarity-metrics": "^0.1.0",
         "itk-dev/web_accessibility_statement": "dev-feature/drupal-11-support"
     },
     "require-dev": {
@@ -55,7 +56,8 @@
             "drupal/core-project-message": true,
             "ergebnis/composer-normalize": true,
             "php-http/discovery": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
         },
         "sort-packages": true
     },

@@ -69,9 +69,18 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
       ],
       'file' => $this->t('File'),
       'whisper_guess' => $this->t('Whisper guess'),
+
       'whisper_guess_similar_text_score' => [
-        'data' => $this->t('Similar text score'),
+        'data' => $this->t('Dissimilar text score'),
         'field' => 'whisper_guess_similar_text_score',
+      ],
+      'whisper_guess_word_error_rate' => [
+        'data' => $this->t('Word error rate'),
+        'field' => 'whisper_guess_word_error_rate',
+      ],
+      'whisper_guess_character_error_rate' => [
+        'data' => $this->t('Character error rate'),
+        'field' => 'whisper_guess_character_error_rate',
       ],
       'validated' => $this->t('Validated'),
     ] + parent::buildHeader();
@@ -95,7 +104,12 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     }
 
     $row['whisper_guess'] = $entity->getWhisperGuess() ?? '-';
-    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? round($entity->getWhisperGuessSimilarTextScore(), 2) . '%' : '-';
+    // To align the similar_text score with WER and CER we report the
+    // dissimilarity score as a decimal, such that all three metrics
+    // have 0 being good and 1 (or more) being bad.
+    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? round(((100 - $entity->getWhisperGuessSimilarTextScore()) / 100), 2) : '-';
+    $row['word_error_rate'] = !is_null($entity->getWhisperGuessWordErrorRate()) ? round($entity->getWhisperGuessWordErrorRate(), 2) : '-';
+    $row['character_error_rate'] = !is_null($entity->getWhisperGuessCharacterErrorRate()) ? round($entity->getWhisperGuessCharacterErrorRate(), 2) : '-';
     $row['validated'] = $entity->getValidatedTime() ? $this->t('Yes') : $this->t('No');
 
     return $row + parent::buildRow($entity);

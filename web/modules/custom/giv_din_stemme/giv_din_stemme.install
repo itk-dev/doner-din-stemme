@@ -37,3 +37,22 @@ function giv_din_stemme_update_11002() {
   \Drupal::entityDefinitionUpdateManager()
     ->installFieldStorageDefinition('whisper_guess_similar_text_score', 'gds', 'gds', $similarTextScoreFieldDefinition);
 }
+
+/**
+ * Add WER and CER fields to gds table.
+ */
+function giv_din_stemme_update_11003() {
+  $wordErrorRateFieldDefinition = BaseFieldDefinition::create('float')
+    ->setLabel(t('Word error rate'))
+    ->setDescription(t('Word error rate between original text and whisper guess'));
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('whisper_guess_word_error_rate', 'gds', 'gds', $wordErrorRateFieldDefinition);
+
+  $characterErrorRateFieldDefinition = BaseFieldDefinition::create('float')
+    ->setLabel(t('Character error rate'))
+    ->setDescription(t('Character error rate between original text and whisper guess'));
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('whisper_guess_character_error_rate', 'gds', 'gds', $characterErrorRateFieldDefinition);
+}
