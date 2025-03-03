@@ -3,13 +3,11 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_accent
     - field.field.user.user.field_birth_year
-    - field.field.user.user.field_country_birth
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
-    - field.field.user.user.field_postal_code
   module:
-    - address
     - path
     - user
 id: user.user.default
@@ -18,49 +16,42 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_accent:
+    type: options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_birth_year:
     type: options_select
-    weight: 34
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_country_birth:
-    type: address_country_default
-    weight: 35
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_dialects:
     type: options_select
-    weight: 33
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_gender:
     type: options_select
-    weight: 32
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_postal_code:
-    type: number
-    weight: 31
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   language:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
