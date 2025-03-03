@@ -1,0 +1,21 @@
+uuid: 63ac79d2-5f06-4758-a068-546552fca66a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_accent
+  module:
+    - options
+    - user
+id: user.user.field_accent
+field_name: field_accent
+entity_type: user
+bundle: user
+label: Accent
+description: 'Ved angivelse af..'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
