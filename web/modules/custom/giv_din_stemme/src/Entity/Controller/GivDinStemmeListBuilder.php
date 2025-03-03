@@ -45,7 +45,6 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     parent::__construct($entity_type, $storage);
   }
 
-
   /**
    * {@inheritdoc}
    */
