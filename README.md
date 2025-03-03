@@ -233,10 +233,7 @@ This is a number between 0 and 1  A low score means the transcribed sentence is 
 Before using the qualifying command you must configure
 
 * Whisper API endpoint
-* Whisper API key
-* Similar text score threshold for when donations should be validated (int or null/unset to disable).
-* WER threshold for when donations should be validated (float or null/unset to disable).
-* CER threshold for when donations should be validated (float or null/unset to disable).
+* Whisper API key.
 
 ```php
 // settings.local.php
@@ -244,9 +241,6 @@ Before using the qualifying command you must configure
 
 $settings['itkdev_whisper_api_endpoint'] = '…';
 $settings['itkdev_whisper_api_key'] = '…';
-$settings['itkdev_automatic_validation_threshold_similar_text_score'] = 80;
-$settings['itkdev_automatic_validation_threshold_wer'] = 0.20;
-$settings['itkdev_automatic_validation_threshold_cer'] = 0.20;
 ```
 
 See 1Password for both api endpoint and key.
@@ -266,12 +260,6 @@ Qualify a specific donation with
 ```shell name="gds-qualify-transcribe-specific-donation"
 itkdev-docker-compose drush giv_din_stemme:qualify:transcribe:id DONATION_ID
 ```
-
-**Note** the `similar_text` qualifying command will validate donations
-if they result in a score that surpasses the configured threshold level.
-The `wer` and `cer` will validate the donation if the score does not
-surpass the configured threshold levels.
-The commands will never invalidate donations.
 
 Calculate similar text score with
 

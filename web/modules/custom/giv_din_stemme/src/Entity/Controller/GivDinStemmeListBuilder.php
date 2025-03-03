@@ -9,7 +9,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Query\QueryInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
-use Drupal\giv_din_stemme\Form\GivDinStemmeFilterForm;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -17,8 +16,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * Provides a list controller for giv_din_stemme entity.
  *
  * @ingroup giv_din_stemme
- *
- * @see https://drupal.stackexchange.com/questions/255724/how-to-create-custom-search-filter-for-entity-list
  */
 class GivDinStemmeListBuilder extends EntityListBuilder {
 
@@ -48,14 +45,6 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     parent::__construct($entity_type, $storage);
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function render() {
-    $build['form'] = \Drupal::formBuilder()->getForm(GivDinStemmeFilterForm::class);
-
-    return $build + parent::render();
-  }
 
   /**
    * {@inheritdoc}
@@ -69,11 +58,6 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
       ],
       'file' => $this->t('File'),
       'whisper_guess' => $this->t('Whisper guess'),
-
-      'whisper_guess_similar_text_score' => [
-        'data' => $this->t('Dissimilar text score'),
-        'field' => 'whisper_guess_similar_text_score',
-      ],
       'whisper_guess_word_error_rate' => [
         'data' => $this->t('Word error rate'),
         'field' => 'whisper_guess_word_error_rate',
@@ -82,7 +66,6 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
         'data' => $this->t('Character error rate'),
         'field' => 'whisper_guess_character_error_rate',
       ],
-      'validated' => $this->t('Validated'),
     ] + parent::buildHeader();
   }
 
@@ -104,13 +87,8 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     }
 
     $row['whisper_guess'] = $entity->getWhisperGuess() ?? '-';
-    // To align the similar_text score with WER and CER we report the
-    // dissimilarity score as a decimal, such that all three metrics
-    // have 0 being good and 1 (or more) being bad.
-    $row['similar_text_score'] = $entity->getWhisperGuessSimilarTextScore() ? round(((100 - $entity->getWhisperGuessSimilarTextScore()) / 100), 2) : '-';
     $row['word_error_rate'] = !is_null($entity->getWhisperGuessWordErrorRate()) ? round($entity->getWhisperGuessWordErrorRate(), 2) : '-';
     $row['character_error_rate'] = !is_null($entity->getWhisperGuessCharacterErrorRate()) ? round($entity->getWhisperGuessCharacterErrorRate(), 2) : '-';
-    $row['validated'] = $entity->getValidatedTime() ? $this->t('Yes') : $this->t('No');
 
     return $row + parent::buildRow($entity);
   }
@@ -134,11 +112,6 @@ class GivDinStemmeListBuilder extends EntityListBuilder {
     $query->condition('file', NULL, 'IS NOT NULL');
 
     if ($request = $this->requestStack->getCurrentRequest()) {
-      $isValidated = $request->query->get(GivDinStemmeFilterForm::IS_VALIDATED);
-
-      if (!is_null($isValidated) && in_array($isValidated, [0, 1])) {
-        $query->condition('validated', NULL, $isValidated ? 'IS NOT NULL' : 'IS NULL');
-      }
 
       if ($order = $request->get('order')) {
         $headers = [];
