@@ -12,7 +12,7 @@ field_name: field_accent
 entity_type: user
 bundle: user
 label: Accent
-description: 'Ved angivelse af..'
+description: 'Oplysning om dit fødested kan hjælpe med at forbedre kunstig intelligens’ evne til at forstå forskellige måder at tale dansk på.'
 required: true
 translatable: false
 default_value: {  }
