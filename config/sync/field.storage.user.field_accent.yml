@@ -1,0 +1,27 @@
+uuid: 22682eb1-7876-4aae-9f2d-abe05f7216d5
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_accent
+field_name: field_accent
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ja
+      label: Ja
+    -
+      value: nej
+      label: Nej
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

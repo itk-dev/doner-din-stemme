@@ -96,17 +96,9 @@ class GivDinStemme extends ContentEntityBase implements ContentEntityInterface {
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'));
 
-    $fields['validated'] = BaseFieldDefinition::create('timestamp')
-      ->setLabel(t('Validated'))
-      ->setDescription(t('The timestamp at which the gds was validated.'));
-
     $fields['whisper_guess'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Whisper Guess'))
       ->setDescription(t('What whisper thinks is being said'));
-
-    $fields['whisper_guess_similar_text_score'] = BaseFieldDefinition::create('float')
-      ->setLabel(t('Similar text score'))
-      ->setDescription(t('Similar text score between original text and whisper guess'));
 
     $fields['whisper_guess_word_error_rate'] = BaseFieldDefinition::create('float')
       ->setLabel(t('Word error rate'))
@@ -150,20 +142,6 @@ class GivDinStemme extends ContentEntityBase implements ContentEntityInterface {
   }
 
   /**
-   * Get validated.
-   */
-  public function getValidatedTime() {
-    return $this->get('validated')->value;
-  }
-
-  /**
-   * Set validated.
-   */
-  public function setValidatedTime(?int $timestamp): void {
-    $this->set('validated', $timestamp);
-  }
-
-  /**
    * Set metadata.
    *
    * @param array $metadata
@@ -185,20 +163,6 @@ class GivDinStemme extends ContentEntityBase implements ContentEntityInterface {
    */
   public function setWhisperGuess(?string $whisperGuess): void {
     $this->set('whisper_guess', $whisperGuess);
-  }
-
-  /**
-   * Get whisper guess similar text score.
-   */
-  public function getWhisperGuessSimilarTextScore() {
-    return $this->get('whisper_guess_similar_text_score')->value;
-  }
-
-  /**
-   * Set whisper guess similar text score.
-   */
-  public function setWhisperGuessSimilarTextScore(?float $score): void {
-    $this->set('whisper_guess_similar_text_score', $score);
   }
 
   /**

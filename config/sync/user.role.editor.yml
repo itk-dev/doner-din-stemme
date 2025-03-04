@@ -32,7 +32,6 @@ permissions:
   - 'delete own text content'
   - 'delete text revisions'
   - 'edit any text content'
-  - 'edit giv din stemme entity'
   - 'edit own text content'
   - 'translate interface'
   - 'use text format simpel_html'
