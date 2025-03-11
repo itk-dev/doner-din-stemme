@@ -231,7 +231,7 @@ class GivDinStemmeController extends ControllerBase {
       // Collect metadata.
       $partTextToRead = $part->getValue()['value'];
       $textId = $text->id();
-      $accent = $user->get('field_accent')->value;
+      $native = $user->get('field_native')->value;
       $birthYear = $user->get('field_birth_year')->value;
       $dialect = $user->get('field_dialects')->value;
       $gender = $user->get('field_gender')->value;
@@ -244,7 +244,7 @@ class GivDinStemmeController extends ControllerBase {
         'birth_year' => $birthYear,
         'dialect' => $dialect,
         'gender' => $gender,
-        'accent' => $accent,
+        'native' => $native,
       ]));
 
       $entity->save();

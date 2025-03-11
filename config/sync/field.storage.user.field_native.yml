@@ -1,21 +1,21 @@
-uuid: 22682eb1-7876-4aae-9f2d-abe05f7216d5
+uuid: 4a862884-131a-4d74-947f-5f68705cb3c2
 langcode: da
 status: true
 dependencies:
   module:
     - options
     - user
-id: user.field_accent
-field_name: field_accent
+id: user.field_native
+field_name: field_native
 entity_type: user
 type: list_string
 settings:
   allowed_values:
     -
-      value: ja
+      value: 'yes'
       label: Ja
     -
-      value: nej
+      value: 'no'
       label: Nej
   allowed_values_function: ''
 module: options

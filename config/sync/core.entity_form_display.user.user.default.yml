@@ -3,10 +3,10 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_accent
     - field.field.user.user.field_birth_year
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
+    - field.field.user.user.field_native
   module:
     - path
     - user
@@ -17,12 +17,6 @@ mode: default
 content:
   account:
     weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_accent:
-    type: options_select
-    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -41,6 +35,12 @@ content:
   field_gender:
     type: options_select
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_native:
+    type: options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

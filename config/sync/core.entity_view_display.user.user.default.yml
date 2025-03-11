@@ -3,10 +3,10 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_accent
     - field.field.user.user.field_birth_year
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
+    - field.field.user.user.field_native
   module:
     - options
     - user
@@ -15,13 +15,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_accent:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_birth_year:
     type: list_default
     label: above
@@ -42,6 +35,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_native:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   member_for:
     settings: {  }
