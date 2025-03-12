@@ -3,6 +3,9 @@ when:
 
 skip_clone: true
 
+labels:
+  zone: CLOUD
+
 steps:
   - name: Ansible playbook
     image: itkdev/ansible-plugin:1
