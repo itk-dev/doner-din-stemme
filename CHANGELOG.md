@@ -8,22 +8,24 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-03-13
+
 * [PR-57](https://github.com/itk-dev/doner-din-stemme/pull/57)
   * Adds `country_birth` user field
   * Updates to latest `itk-dev/web_accessibility_statement`.
 
-## [1.0.3] - 2024-03-10
+## [1.0.3] - 2025-03-10
 
 * [PR-60](https://github.com/itk-dev/doner-din-stemme/pull/60)
   * Fix secret names in woodpecker workflow files.
 
-## [1.0.2] - 2024-03-10
+## [1.0.2] - 2025-03-10
 
 * [PR-59](https://github.com/itk-dev/doner-din-stemme/pull/59)
   * Update woodpecker workflow files with zone label.
   * Add missing license
 
-## [1.0.1] - 2024-02-20
+## [1.0.1] - 2025-02-20
 
 * [PR-58](https://github.com/itk-dev/doner-din-stemme/pull/58)
   Drupal core and external auth module updates.
