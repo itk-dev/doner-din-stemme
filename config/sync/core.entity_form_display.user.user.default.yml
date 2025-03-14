@@ -6,7 +6,7 @@ dependencies:
     - field.field.user.user.field_birth_year
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
-    - field.field.user.user.field_postal_code
+    - field.field.user.user.field_native
   module:
     - path
     - user
@@ -16,43 +16,42 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   field_birth_year:
     type: options_select
-    weight: 34
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_dialects:
     type: options_select
-    weight: 33
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_gender:
     type: options_select
-    weight: 32
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_postal_code:
-    type: number
-    weight: 31
+  field_native:
+    type: options_select
+    weight: 3
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   language:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

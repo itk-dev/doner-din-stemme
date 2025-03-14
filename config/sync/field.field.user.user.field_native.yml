@@ -1,0 +1,21 @@
+uuid: 07df8a75-9f80-4627-827a-3e1eeadd635d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_native
+  module:
+    - options
+    - user
+id: user.user.field_native
+field_name: field_native
+entity_type: user
+bundle: user
+label: 'Er du født i Danmark?'
+description: 'Oplysning om dit fødested kan hjælpe med at forbedre kunstig intelligens’ evne til at forstå forskellige måder at tale dansk på.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

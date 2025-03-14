@@ -56,3 +56,20 @@ function giv_din_stemme_update_11003() {
   \Drupal::entityDefinitionUpdateManager()
     ->installFieldStorageDefinition('whisper_guess_character_error_rate', 'gds', 'gds', $characterErrorRateFieldDefinition);
 }
+
+/**
+ * Remove validated and whisper_guess_similar_text_score from gds table.
+ */
+function giv_din_stemme_update_11004() {
+  $validatedDefinition = \Drupal::entityDefinitionUpdateManager()
+    ->getFieldStorageDefinition('validated', 'gds');
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->uninstallFieldStorageDefinition($validatedDefinition);
+
+  $similarTextScoreFieldDefinition = \Drupal::entityDefinitionUpdateManager()
+    ->getFieldStorageDefinition('whisper_guess_similar_text_score', 'gds');
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->uninstallFieldStorageDefinition($similarTextScoreFieldDefinition);
+}
