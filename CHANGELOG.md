@@ -11,8 +11,10 @@ See [keep a changelog] for information about writing changes to this log.
 ## [1.1.0] - 2025-03-13
 
 * [PR-57](https://github.com/itk-dev/doner-din-stemme/pull/57)
-  * Adds `country_birth` user field
+  * Adds `native` user field
   * Updates to latest `itk-dev/web_accessibility_statement`.
+  * Removes field_country_birth and field_postal_code user field
+  * Removes similar text score and validated fields from gds
 
 ## [1.0.3] - 2025-03-10
 
