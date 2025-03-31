@@ -28,6 +28,8 @@ steps:
         - git checkout ${CI_COMMIT_BRANCH}
         - git pull
         - itkdev-docker-compose-server up -d --force-recreate
+        - chmod +w web/sites/default
+        - chmod +w web/sites/default/settings.php
         - itkdev-docker-compose-server exec phpfpm composer install --no-dev -o --classmap-authoritative
         - itkdev-docker-compose-server exec phpfpm vendor/bin/drush --yes cache:rebuild
         - itkdev-docker-compose-server exec phpfpm vendor/bin/drush --yes deploy
