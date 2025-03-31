@@ -8,7 +8,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-## [1.0.4] - 2025-03-31 
+## [1.0.4] - 2025-03-31
 
 * [PR-62](https://github.com/itk-dev/doner-din-stemme/pull/62)
   * Update drupal core - 11.1.5
