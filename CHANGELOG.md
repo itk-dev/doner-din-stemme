@@ -8,18 +8,23 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-## [1.0.3] - 2024-03-10
+## [1.0.4] - 2025-03-31
+
+* [PR-62](https://github.com/itk-dev/doner-din-stemme/pull/62)
+  * Update drupal core - 11.1.5
+
+## [1.0.3] - 2025-03-10
 
 * [PR-60](https://github.com/itk-dev/doner-din-stemme/pull/60)
   * Fix secret names in woodpecker workflow files.
 
-## [1.0.2] - 2024-03-10
+## [1.0.2] - 2025-03-10
 
 * [PR-59](https://github.com/itk-dev/doner-din-stemme/pull/59)
   * Update woodpecker workflow files with zone label.
   * Add missing license
 
-## [1.0.1] - 2024-02-20
+## [1.0.1] - 2025-02-20
 
 * [PR-58](https://github.com/itk-dev/doner-din-stemme/pull/58)
   Drupal core and external auth module updates.
@@ -99,7 +104,8 @@ See [keep a changelog] for information about writing changes to this log.
 * Initial project.
 
 [Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...HEAD
-[1.0.2]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.2...1.0.3
+[1.0.4]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...1.0.4
+[1.0.3]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/itk-dev/doner-din-stemme/releases/tag/1.0.0
