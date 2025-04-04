@@ -8,6 +8,14 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-03-13
+
+* [PR-57](https://github.com/itk-dev/doner-din-stemme/pull/57)
+  * Adds `native` user field
+  * Updates to latest `itk-dev/web_accessibility_statement`.
+  * Removes field_country_birth and field_postal_code user field
+  * Removes similar text score and validated fields from gds
+
 ## [1.0.4] - 2025-03-31
 
 * [PR-62](https://github.com/itk-dev/doner-din-stemme/pull/62)
@@ -103,7 +111,8 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...HEAD
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.4...1.1.0
 [1.0.4]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.1...1.0.2

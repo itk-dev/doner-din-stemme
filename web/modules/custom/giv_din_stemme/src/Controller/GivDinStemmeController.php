@@ -231,10 +231,10 @@ class GivDinStemmeController extends ControllerBase {
       // Collect metadata.
       $partTextToRead = $part->getValue()['value'];
       $textId = $text->id();
+      $native = $user->get('field_native')->value;
       $birthYear = $user->get('field_birth_year')->value;
       $dialect = $user->get('field_dialects')->value;
       $gender = $user->get('field_gender')->value;
-      $postalCode = $user->get('field_postal_code')->value;
 
       $entity->set('metadata', json_encode([
         'text' => $partTextToRead,
@@ -244,7 +244,7 @@ class GivDinStemmeController extends ControllerBase {
         'birth_year' => $birthYear,
         'dialect' => $dialect,
         'gender' => $gender,
-        'postal_code' => $postalCode,
+        'native' => $native,
       ]));
 
       $entity->save();

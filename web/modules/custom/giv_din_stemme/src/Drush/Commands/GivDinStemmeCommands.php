@@ -35,28 +35,6 @@ final class GivDinStemmeCommands extends DrushCommands {
    */
   private string $whisperApiKey;
 
-  /**
-   * Automatic validation threshold for WER.
-   *
-   * @var ?float
-   */
-  private ?float $automaticValidationThresholdWer;
-
-  /**
-   * Automatic validation threshold for CER.
-   *
-   * @var ?float
-   */
-  private ?float $automaticValidationThresholdCer;
-
-  /**
-   * Automatic validation threshold for similar text score.
-   *
-   * @var ?int
-   */
-  private ?int $automaticValidationThresholdSimilarTextScore;
-
-
   use AutowireTrait;
 
   /**
@@ -71,9 +49,6 @@ final class GivDinStemmeCommands extends DrushCommands {
     parent::__construct();
     $this->whisperApiEndpoint = Settings::get('itkdev_whisper_api_endpoint', 'https://whisper.itkdev.dk/');
     $this->whisperApiKey = Settings::get('itkdev_whisper_api_key', 'SOME_API_KEY');
-    $this->automaticValidationThresholdSimilarTextScore = Settings::get('itkdev_automatic_validation_threshold_similar_text_score');
-    $this->automaticValidationThresholdWer = Settings::get('itkdev_automatic_validation_threshold_wer');
-    $this->automaticValidationThresholdCer = Settings::get('itkdev_automatic_validation_threshold_cer');
   }
 
   /**
@@ -200,63 +175,6 @@ final class GivDinStemmeCommands extends DrushCommands {
   }
 
   /**
-   * Calculates similar text score.
-   */
-  #[CLI\Command(name: 'giv-din-stemme:qualify:similar-text-score')]
-  #[CLI\Option(name: 're-calculate', description: 're-calculate similar text score')]
-  #[CLI\Usage(name: 'giv-din-stemme:qualify:similar-text-score', description: 'Calculate similar text score on all donations')]
-  public function calculateSimilarTextScore($options = ['re-calculate' => FALSE]): void {
-    $storage = $this->entityTypeManager->getStorage('gds');
-    $query = $storage->getQuery();
-
-    $query->exists('whisper_guess');
-
-    if (!$options['re-calculate']) {
-      $query->notExists('whisper_guess_similar_text_score');
-    }
-
-    $donationIds = $query->accessCheck()->execute();
-
-    if (empty($donationIds)) {
-      $this->io()->success('No donations for qualification detected');
-      return;
-    }
-
-    $numberOfGds = count($donationIds);
-
-    $this->io()->writeln('Number of donations being handled:' . $numberOfGds);
-
-    $counter = 1;
-
-    foreach ($donationIds as $id) {
-
-      $this->io()->writeln('Handling donation ' . $counter . ' of ' . $numberOfGds);
-
-      /** @var \Drupal\giv_din_stemme\Entity\GivDinStemme $gds */
-      $gds = $storage->load($id);
-
-      $metadata = $gds->getMetadata();
-      $originalText = $metadata['text'];
-
-      similar_text($originalText, $gds->getWhisperGuess(), $percent);
-
-      $gds->setWhisperGuessSimilarTextScore($percent);
-
-      // If similar_text score is considered good enough
-      // and donation is not validated, validate it.
-      if (is_int($this->automaticValidationThresholdSimilarTextScore) && (int) $percent >= $this->automaticValidationThresholdSimilarTextScore && !$gds->getValidatedTime()) {
-        $gds->setValidatedTime((new \DateTimeImmutable())->getTimestamp());
-      }
-
-      $gds->save();
-
-      $counter++;
-    }
-
-    $this->io->success('Finished qualifying donations');
-  }
-
-  /**
    * Calculates word error rates (WER).
    */
   #[CLI\Command(name: 'giv-din-stemme:qualify:wer')]
@@ -300,12 +218,6 @@ final class GivDinStemmeCommands extends DrushCommands {
       $wer = $werService->wer($originalText, $gds->getWhisperGuess());
 
       $gds->setWhisperGuessWordErrorRate($wer);
-
-      // If WER score is considered good enough
-      // and donation is not validated, validate it.
-      if (is_float($this->automaticValidationThresholdWer) && $wer <= $this->automaticValidationThresholdWer && !$gds->getValidatedTime()) {
-        $gds->setValidatedTime((new \DateTimeImmutable())->getTimestamp());
-      }
 
       $gds->save();
 
@@ -358,12 +270,6 @@ final class GivDinStemmeCommands extends DrushCommands {
 
       $cer = $cerService->cer($originalText, $gds->getWhisperGuess());
       $gds->setWhisperGuessCharacterErrorRate($cer);
-
-      // If CER score is considered good enough
-      // and donation is not validated, validate it.
-      if (is_float($this->automaticValidationThresholdCer) && $cer <= $this->automaticValidationThresholdCer && !$gds->getValidatedTime()) {
-        $gds->setValidatedTime((new \DateTimeImmutable())->getTimestamp());
-      }
 
       $gds->save();
 

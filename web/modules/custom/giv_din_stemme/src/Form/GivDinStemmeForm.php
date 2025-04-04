@@ -54,12 +54,6 @@ class GivDinStemmeForm extends ContentEntityForm {
       ];
     }
 
-    $form['is_validated'] = [
-      '#title' => $this->t('Validated'),
-      '#type' => 'checkbox',
-      '#default_value' => (bool) $entity->getValidatedTime(),
-    ];
-
     return $form;
   }
 
@@ -70,13 +64,6 @@ class GivDinStemmeForm extends ContentEntityForm {
     $form_state->setRedirect('entity.gds.collection');
     /** @var \Drupal\giv_din_stemme\Entity\GivDinStemme $entity */
     $entity = $this->getEntity();
-
-    $oldValidated = (bool) $entity->getValidatedTime();
-    $newValidated = (bool) $form_state->getValue('is_validated');
-
-    if ($oldValidated !== $newValidated) {
-      $entity->setValidatedTime($newValidated ? time() : NULL);
-    }
 
     return $entity->save();
   }
