@@ -16,6 +16,11 @@ See [keep a changelog] for information about writing changes to this log.
   * Removes field_country_birth and field_postal_code user field
   * Removes similar text score and validated fields from gds
 
+## [1.0.4] - 2025-03-31
+
+* [PR-62](https://github.com/itk-dev/doner-din-stemme/pull/62)
+  * Update drupal core - 11.1.5
+
 ## [1.0.3] - 2025-03-10
 
 * [PR-60](https://github.com/itk-dev/doner-din-stemme/pull/60)
@@ -107,7 +112,8 @@ See [keep a changelog] for information about writing changes to this log.
 * Initial project.
 
 [Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.1.0...HEAD
-[1.1.0]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...1.1.0
+[1.1.0]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.4...1.1.0
+[1.0.4]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.0...1.0.1

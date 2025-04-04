@@ -23,6 +23,8 @@ steps:
       user:
         from_secret: user
       actions:
+        - chmod +w web/sites/default
+        - chmod +w web/sites/default/settings.php
         - git reset --hard
         - git fetch origin ${CI_COMMIT_BRANCH}
         - git checkout ${CI_COMMIT_BRANCH}
