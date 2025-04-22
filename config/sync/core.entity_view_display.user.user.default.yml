@@ -6,7 +6,7 @@ dependencies:
     - field.field.user.user.field_birth_year
     - field.field.user.user.field_dialects
     - field.field.user.user.field_gender
-    - field.field.user.user.field_postal_code
+    - field.field.user.user.field_native
   module:
     - options
     - user
@@ -20,35 +20,33 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 4
     region: content
   field_dialects:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 2
     region: content
   field_gender:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 3
     region: content
-  field_postal_code:
-    type: number_integer
+  field_native:
+    type: list_default
     label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 1
     region: content
   member_for:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 0
     region: content
 hidden:
   langcode: true
