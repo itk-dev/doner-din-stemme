@@ -38,6 +38,9 @@ settings:
     -
       value: sydoemaal
       label: Sydømål
+    -
+      value: 'non-native accent'
+      label: 'Ikke dansk accent'
   allowed_values_function: ''
 module: options
 locked: false
