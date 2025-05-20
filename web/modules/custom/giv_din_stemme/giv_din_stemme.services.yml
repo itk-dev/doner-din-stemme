@@ -18,10 +18,13 @@ services:
       - '@uuid'
       - '@state'
       - '@lock'
-
   Drupal\giv_din_stemme\Drush\Commands\GivDinStemmeCommands:
     arguments:
       - '@http_client'
       - '@entity_type.manager'
       - '@database'
       - '@file_system'
+  giv_din_stemme.route_subscriber:
+    class: 'Drupal\giv_din_stemme\Routing\RouteSubscriber'
+    tags:
+      - { name: event_subscriber }

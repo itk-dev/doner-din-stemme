@@ -14,15 +14,27 @@ module:
   giv_din_stemme: 0
   itk_admin: 0
   itk_openid_connect_interpreter: 0
+  jsonapi: 0
+  jsonapi_defaults: 0
+  jsonapi_extras: 0
+  jsonapi_include: 0
+  key_auth: 0
   language: 0
   locale: 0
   mysql: 0
   node: 0
+  openapi: 0
+  openapi_jsonapi: 0
+  openapi_ui: 0
+  openapi_ui_swagger: 0
   openid_connect: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  schemata: 0
+  schemata_json_schema: 0
+  serialization: 0
   system: 0
   text: 0
   token: 0
@@ -30,9 +42,11 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_ui: 0
   web_accessibility_statement: 0
   pathauto: 1
   externalauth: 10
+  views: 10
   minimal: 1000
 theme:
   stark: 0

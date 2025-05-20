@@ -1,0 +1,14 @@
+uuid: 2b12a201-b448-4157-ab21-0fd796319be5
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.api_adgang
+  module:
+    - user
+id: user_add_role_action.api_adgang
+label: 'Add the Api adgang role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: api_adgang
