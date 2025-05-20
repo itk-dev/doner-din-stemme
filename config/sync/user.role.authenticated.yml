@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - giv_din_stemme
-    - key_auth
     - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
@@ -16,6 +15,4 @@ permissions:
   - 'access content'
   - 'access giv din stemme'
   - 'access giv din stemme api'
-  - 'access giv din stemme view'
   - 'cancel account'
-  - 'use key authentication'

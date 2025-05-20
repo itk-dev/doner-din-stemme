@@ -7,7 +7,9 @@ dependencies:
     - node.type.text
   module:
     - filter
+    - giv_din_stemme
     - itk_admin
+    - key_auth
     - locale
     - node
     - system
@@ -19,11 +21,14 @@ is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access giv din stemme view'
   - 'access itk admin settings'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer account settings'
   - 'administer nodes'
+  - 'administer users'
   - 'bypass node access'
   - 'create text content'
   - 'delete any text content'
@@ -32,6 +37,8 @@ permissions:
   - 'edit any text content'
   - 'edit own text content'
   - 'translate interface'
+  - 'use key authentication'
   - 'use text format simpel_html'
   - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view user email addresses'

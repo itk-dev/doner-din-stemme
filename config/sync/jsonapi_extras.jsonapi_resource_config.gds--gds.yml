@@ -4,10 +4,16 @@ status: true
 dependencies:
   module:
     - giv_din_stemme
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    default_include:
+      - file
+    page_limit: 50
 id: gds--gds
 disabled: false
-path: gds/gds
-resourceType: gds--gds
+path: dds
+resourceType: dds
 resourceFields:
   id:
     disabled: false
@@ -27,8 +33,14 @@ resourceFields:
     publicName: metadata
     enhancer:
       id: json
-  user_hash:
+  file:
     disabled: false
+    fieldName: file
+    publicName: file
+    enhancer:
+      id: ''
+  user_hash:
+    disabled: true
     fieldName: user_hash
     publicName: user_hash
     enhancer:
@@ -55,11 +67,5 @@ resourceFields:
     disabled: false
     fieldName: changed
     publicName: changed
-    enhancer:
-      id: ''
-  file:
-    disabled: false
-    fieldName: file
-    publicName: file
     enhancer:
       id: ''
