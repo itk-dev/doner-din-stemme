@@ -12,3 +12,4 @@ is_admin: null
 permissions:
   - 'access giv din stemme view'
   - 'use key authentication'
+  - 'view giv din stemme entity'
