@@ -48,7 +48,7 @@ resourceFields:
     fieldName: uri
     publicName: uri
     enhancer:
-      id: ''
+      id: absolute_url_file
   filemime:
     disabled: false
     fieldName: filemime

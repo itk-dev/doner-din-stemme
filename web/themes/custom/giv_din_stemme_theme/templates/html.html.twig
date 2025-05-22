@@ -49,6 +49,12 @@
     </div>
     <img class="-z-50 fixed object-cover object-center min-h-80 w-full bottom-0" src="/{{ directory }}/background.svg" alt="" />
     <img class="-z-45 p-3 md:m-0 md:fixed md:left-5 md:bottom-5" src="/{{ directory }}/doner-din-stemme-logo.svg" alt="" />
+    {% if is_front %}
+      <div class="-z-45 p-3 md:m-0 md:fixed md:bottom-5 bg-white rounded-md md:right-8 m-3 inline-block">
+        <h4 class="mt-0">{{ 'Do you want access to data?' }}</h4>
+        <p><a class="underline" href="{{ path('giv_din_stemme.api_docs') }}">{{ 'View documentation for API access and usage'|t }}</a></p>
+      </div>
+    {% endif %}
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
