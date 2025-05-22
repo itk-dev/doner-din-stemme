@@ -73,6 +73,18 @@ function giv_din_stemme_theme(array $existing, string $type, string $theme, stri
         'text' => NULL,
       ],
     ],
+    'api_docs' => [
+      'variables' => [
+        'values' => NULL,
+      ],
+      'template' => 'api-docs',
+    ],
+    'api_swagger' => [
+      'variables' => [
+        'values' => NULL,
+      ],
+      'template' => 'api-swagger',
+    ],
   ];
 }
 

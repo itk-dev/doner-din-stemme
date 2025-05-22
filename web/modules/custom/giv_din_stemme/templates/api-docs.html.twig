@@ -1,0 +1,24 @@
+{%
+  set redirect_url = url(user.isAuthenticated() ? 'giv_din_stemme.profile' : 'giv_din_stemme.consent')
+%}
+
+<section class="content">
+  <main class="main px-5">
+    <h1 class="text-5xl">{{ drupal_title() }}</h1>
+    <div class="py-5 grid md:grid-cols-2 md:gap-x-6 text-lg text-gray-500">
+      <div class="col-span-1 mb-10 static-content">
+        {{ values.text|raw }}
+      </div>
+      <div class="col-span-1">
+        <p>
+          {{ 'The full documentation is presented using swagger.io documentation tool.'|t }}
+        </p>
+        <div class="my-10">
+          <a href="{{ path('giv_din_stemme.api_swagger') }}" class="btn-primary">
+            <span>{{ 'View documentation'|t }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
