@@ -3,7 +3,7 @@ servers:
   - url: https://{host}/jsonapi
     variables:
       host:
-        default: givdinstemme.local.itkdev.dk
+        default: donerdinstemme.dk
 info:
   description: This is a JSON API compliant implementation
   title: Donér din stemme - JSON API
