@@ -327,9 +327,10 @@ docker compose run --rm node yarn coding-standards-check
 
 ## API
 
-Before using the api the site owner must create a user and add an API key to
-the user. Api endpoints are accessible through browser with the right user
-permissions, but private file access requires an API key.
+Before using the api the site owner must create a user, add an API key to
+the user and add the API Access role to that user. 
+Api endpoints are accessible with the right user permissions, 
+and private file access also requires an API key.
 
 See accessible endpoints:
 
@@ -337,21 +338,13 @@ See accessible endpoints:
 curl --url https://donerdinstemme.dk/jsonapi --header "api-key: <API KEY>"
 ```
 
-Get recordings metadata and file relationship:
+Get recordings metadata and file info:
 
 ```shell
-curl --url https://donerdinstemme.dk/jsonapi/gds/gds --header "api-key: <API KEY>"
+curl --url https://donerdinstemme.dk/jsonapi/dds --header "api-key: <API KEY>"
 ```
 
-Get file info:
-
-```shell
-curl --url https://donerdinstemme.dk/jsonapi/gds/gds/<FILE_ID>/file --header "api-key: <API KEY>"
-```
-
-### File download path
-
-Use the file info endpoint data to construct a file path i.e.
+Get audio file.
 
 ```shell
 curl --url https://donerdinstemme.dk/system/files/audio/<FILE_NAME>.wav --header "api-key: <API KEY>" > myLocalFile.wav
