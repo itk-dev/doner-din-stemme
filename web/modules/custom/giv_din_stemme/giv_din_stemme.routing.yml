@@ -150,8 +150,6 @@ entity.gds.canonical:
     # Calls the access controller of the entity, passing in the suffix ('view')
     # as the $operation parameter to checkAccess().
     _entity_access: 'gds.view'
-  options:
-    _auth: [ 'key_auth', 'cookie' ]
 
 entity.gds.collection:
   path: '/admin/gds/list'
