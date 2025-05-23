@@ -14,4 +14,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access giv din stemme'
+  - 'access giv din stemme api'
   - 'cancel account'

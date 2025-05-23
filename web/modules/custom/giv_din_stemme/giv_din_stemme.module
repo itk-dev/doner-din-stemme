@@ -8,8 +8,12 @@
  */
 
 use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Implements hook_theme().
@@ -71,6 +75,18 @@ function giv_din_stemme_theme(array $existing, string $type, string $theme, stri
         'src' => NULL,
         'text' => NULL,
       ],
+    ],
+    'api_docs' => [
+      'variables' => [
+        'values' => NULL,
+      ],
+      'template' => 'api-docs',
+    ],
+    'api_swagger' => [
+      'variables' => [
+        'values' => NULL,
+      ],
+      'template' => 'api-swagger',
     ],
   ];
 }
@@ -150,4 +166,42 @@ function giv_din_stemme_ckeditor5_plugin_info_alter(array &$plugin_definitions) 
   ];
 
   $plugin_definitions['ckeditor5_link'] = new CKEditor5PluginDefinition($link_plugin_definition);
+}
+
+/**
+ * Implements hook_file_download().
+ *
+ * @todo Move to helper.
+ */
+function giv_din_stemme_file_download($uri) {
+  // Make sure access is done through use of Api key.
+  if (isset($_SERVER['HTTP_API_KEY'])) {
+    // @todo Check api key for match and get user.
+    // @todo Create role and make check on users role.
+    // Download file.
+    $files = \Drupal::entityTypeManager()
+      ->getStorage('file')
+      ->loadByProperties(['uri' => $uri]);
+    /** @var \Drupal\file\FileInterface|null $file */
+    $file = reset($files) ?: NULL;
+
+    if ($file) {
+      $headers = file_get_content_headers($file);
+      $headers['Content-Disposition'] = 'attachment; filename=' . \Drupal::service('file_url_generator')
+        ->generateAbsoluteString($uri);
+
+      new BinaryFileResponse($uri, 200, $headers);
+    }
+
+  }
+}
+
+/**
+ * Implements hook_jsonapi_ENTITY_TYPE_filter_access().
+ */
+function giv_din_stemme_jsonapi_gds_filter_access(EntityTypeInterface $entity_type, AccountInterface $account) {
+  // Allow JSON:API filtering with gds entity.
+  return [
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
+  ];
 }

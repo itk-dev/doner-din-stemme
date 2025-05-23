@@ -13,3 +13,11 @@ edit giv din stemme entity:
 delete giv din stemme entity:
   title: 'Delete giv din stemme entity'
   description: 'Delete access to giv din stemme entity'
+
+access giv din stemme view:
+  title: 'Access giv din stemme view'
+  description: 'View giv din stemme content'
+
+access giv din stemme api:
+  title: 'Access giv din stemme API'
+  description: 'Use giv din stemme API'
