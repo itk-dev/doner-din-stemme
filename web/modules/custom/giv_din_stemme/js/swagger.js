@@ -29,9 +29,7 @@
         layout: "StandaloneLayout"
       }
 
-      const ui = SwaggerUIBundle(config);
-      console.log(ui);
-      window.ui = ui;
+      window.ui = SwaggerUIBundle(config);
     }
   }
 })(jQuery, Drupal, drupalSettings);

@@ -20,6 +20,10 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setOption('_auth', ['key_auth']);
     }
 
+    if ($route = $collection->get('entity.gds.canonical')) {
+      $route->setOption('_auth', ['key_auth']);
+    }
+
     // Setup access to api routes through key auth.
     foreach ($collection as $route) {
       $defaults = $route->getDefaults();
