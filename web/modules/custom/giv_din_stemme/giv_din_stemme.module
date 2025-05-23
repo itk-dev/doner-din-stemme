@@ -8,7 +8,10 @@
  */
 
 use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -191,5 +194,15 @@ function giv_din_stemme_file_download($uri) {
     }
 
   }
+}
+
+/**
+ * Implements hook_jsonapi_ENTITY_TYPE_filter_access().
+ */
+function giv_din_stemme_jsonapi_gds_filter_access(EntityTypeInterface $entity_type, AccountInterface $account) {
+  // Allow JSON:API filtering with gds entity.
+  return [
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
+  ];
 }
 
