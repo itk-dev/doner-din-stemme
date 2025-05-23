@@ -205,4 +205,3 @@ function giv_din_stemme_jsonapi_gds_filter_access(EntityTypeInterface $entity_ty
     JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
   ];
 }
-

@@ -39,7 +39,7 @@ class ApiDocsController extends ControllerBase {
   public function docs(Request $request): array {
     return [
       '#theme' => 'api_docs',
-      '#values' => ['text' => $this->state->get('giv_din_stemme.api_docs_text')]
+      '#values' => ['text' => $this->state->get('giv_din_stemme.api_docs_text')],
     ];
   }
 
@@ -57,4 +57,5 @@ class ApiDocsController extends ControllerBase {
       ],
     ];
   }
+
 }

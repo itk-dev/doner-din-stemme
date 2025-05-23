@@ -23,7 +23,7 @@ class RouteSubscriber extends RouteSubscriberBase {
     // Setup access to api routes through key auth.
     foreach ($collection as $route) {
       $defaults = $route->getDefaults();
-      if (!empty($defaults[ '_is_jsonapi' ])) {
+      if (!empty($defaults['_is_jsonapi'])) {
         $route->setOption('_auth', ['key_auth']);
       }
     }
