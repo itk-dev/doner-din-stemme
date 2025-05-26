@@ -3,33 +3,31 @@
  * Provides Swagger integration.
  */
 
-(function ($, Drupal, drupalSettings) {
-
+(function ($, Drupal) {
   Drupal.behaviors.swaggerui = {
-    attach: function (context, settings) {
+    attach: function () {
       function SwaggerUIHideTopbarPlugin() {
         return {
           components: {
-            Topbar: function() { return null }
-          }
-        }
+            Topbar: function () {
+              return null;
+            },
+          },
+        };
       }
       let swaggerWrapper = document.getElementById("swagger-ui");
       let config = {
-        url: swaggerWrapper.getAttribute('data-swagger-def'),
-        dom_id: '#swagger-ui',
-        presets: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset
-        ],
+        url: swaggerWrapper.getAttribute("data-swagger-def"),
+        dom_id: "#swagger-ui",
+        presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl,
-          SwaggerUIHideTopbarPlugin
+          SwaggerUIHideTopbarPlugin,
         ],
-        layout: "StandaloneLayout"
-      }
+        layout: "StandaloneLayout",
+      };
 
       window.ui = SwaggerUIBundle(config);
-    }
-  }
+    },
+  };
 })(jQuery, Drupal, drupalSettings);
