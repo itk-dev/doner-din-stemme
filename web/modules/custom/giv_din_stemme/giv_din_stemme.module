@@ -3,8 +3,6 @@
 /**
  * @file
  * Hooks for giv din stemme module.
- *
- * @todo Create Helper for these hooks.
  */
 
 use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
@@ -176,8 +174,6 @@ function giv_din_stemme_ckeditor5_plugin_info_alter(array &$plugin_definitions) 
 function giv_din_stemme_file_download($uri) {
   // Make sure access is done through use of Api key.
   if (isset($_SERVER['HTTP_API_KEY'])) {
-    // @todo Check api key for match and get user.
-    // @todo Create role and make check on users role.
     // Download file.
     $files = \Drupal::entityTypeManager()
       ->getStorage('file')
