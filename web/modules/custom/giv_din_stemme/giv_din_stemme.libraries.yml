@@ -9,3 +9,19 @@ check_microphone:
 test_microphone:
   js:
     js/testMicrophone.js: {}
+
+swagger_ui:
+  js:
+    /libraries/swagger-ui/dist/swagger-ui-bundle.js: {}
+    /libraries/swagger-ui/dist/swagger-ui-standalone-preset.js: {}
+  css:
+    theme:
+      /libraries/swagger-ui/dist/swagger-ui.css: { minified: true }
+
+swagger_ui_integration:
+  js:
+    js/swagger.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - giv_din_stemme/swagger_ui

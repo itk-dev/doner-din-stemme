@@ -1,0 +1,77 @@
+openapi: 3.1.0
+servers:
+  - url: https://{host}/jsonapi
+    variables:
+      host:
+        default: donerdinstemme.dk
+info:
+  description: This is a JSON API compliant implementation
+  title: Donér din stemme - JSON API
+  version: "1.0"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+security:
+  - ApiKeyAuth: []
+paths:
+  /dds:
+    get:
+      summary: List donations
+      description: >-
+        List all donations.
+      parameters:
+        # https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/filtering
+        - name: 'filter[id]'
+          in: query
+          schema:
+            type: string
+          required: false
+          description: Filter by a specific donation id.
+        - name: 'filter[date-filter][condition][path]'
+          in: query
+          schema:
+            type: string
+            enum: [created, changed]
+          required: false
+          description: Filter by a date field.
+        - name: 'filter[date-filter][condition][operator]'
+          in: query
+          schema:
+            type: string
+            enum: ['>', '<']
+          required: false
+          description: The operator that determines if the date should be greater or less than the applied date.
+        - name: 'filter[date-filter][condition][value]'
+          in: query
+          schema:
+            type: int
+            placeholder: asd
+          required: false
+          description: A timestamp to filter by.
+      tags:
+        - Donation
+      responses:
+        '200':
+          description: Successful operation
+  /dds/{entity}:
+    get:
+      summary: View donation
+      description: >-
+        Get a specific donation by id
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          schema:
+            type: string
+          description: The id of the donation
+      tags:
+        - Donation
+      responses:
+        '200':
+          description: Successful operation
+        '403':
+          description: Authorization information is missing or invalid

@@ -118,6 +118,26 @@ giv_din_stemme.thank_you:
   requirements:
     _permission: 'access giv din stemme'
 
+giv_din_stemme.api_docs:
+  path: '/api-docs/front'
+  methods:
+    - 'GET'
+  defaults:
+    _controller: '\Drupal\giv_din_stemme\Controller\ApiDocsController::docs'
+    _title: 'Api docs'
+  requirements:
+    _permission: 'access content'
+
+giv_din_stemme.api_swagger:
+  path: '/api-docs/swagger'
+  methods:
+    - 'GET'
+  defaults:
+    _controller: '\Drupal\giv_din_stemme\Controller\ApiDocsController::swagger'
+    _title: 'Api docs'
+  requirements:
+    _permission: 'access content'
+
 # Entity admin routes
 entity.gds.canonical:
   path: '/admin/gds/{gds}'
