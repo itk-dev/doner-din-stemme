@@ -324,3 +324,28 @@ docker compose run --rm node yarn install
 docker compose run --rm node yarn coding-standards-apply
 docker compose run --rm node yarn coding-standards-check
 ```
+
+## API
+
+Before using the api the site owner must create a user, add an API key to
+the user and add the API Access role to that user.
+Api endpoints are accessible with the right user permissions,
+and private file access also requires an API key.
+
+See accessible endpoints:
+
+```shell
+curl --url https://donerdinstemme.dk/jsonapi --header "api-key: <API KEY>"
+```
+
+Get recordings metadata and file info:
+
+```shell
+curl --url https://donerdinstemme.dk/jsonapi/dds --header "api-key: <API KEY>"
+```
+
+Get audio file.
+
+```shell
+curl --url https://donerdinstemme.dk/system/files/audio/<FILE_NAME>.wav --header "api-key: <API KEY>" > myLocalFile.wav
+```

@@ -1,0 +1,15 @@
+uuid: cf6b7843-1889-408c-aaa4-6bd2551b7591
+langcode: da
+status: true
+dependencies:
+  module:
+    - giv_din_stemme
+    - key_auth
+id: api_adgang
+label: 'Api adgang'
+weight: 3
+is_admin: null
+permissions:
+  - 'access giv din stemme view'
+  - 'use key authentication'
+  - 'view giv din stemme entity'
