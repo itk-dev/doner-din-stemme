@@ -12,6 +12,7 @@ services:
       - '@database'
       - '@file_system'
       - '@settings'
+
   Drupal\giv_din_stemme\Helper\Helper:
     arguments:
       - '@entity_type.manager'
@@ -25,3 +26,7 @@ services:
       - '@entity_type.manager'
       - '@database'
       - '@file_system'
+
+  Drupal\giv_din_stemme\Routing\RouteSubscriber:
+    tags:
+      - { name: event_subscriber }

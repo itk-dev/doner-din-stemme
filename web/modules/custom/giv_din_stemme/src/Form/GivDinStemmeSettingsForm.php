@@ -129,6 +129,14 @@ class GivDinStemmeSettingsForm extends FormBase {
       '#weight' => '1',
     ];
 
+    $form['texts']['api_docs_text'] = [
+      '#title' => $this->t('Api docs text'),
+      '#type' => 'text_format',
+      '#format' => 'simpel_html',
+      '#default_value' => $this->state->get('giv_din_stemme.api_docs_text'),
+      '#weight' => '1',
+    ];
+
     $form['references']['permissions_help_page'] = [
       '#type' => 'entity_autocomplete',
       '#target_type' => 'node',
@@ -165,6 +173,7 @@ class GivDinStemmeSettingsForm extends FormBase {
       'giv_din_stemme.competition_header_text' => $form_state->getValue('competition_header_text')['value'],
       'giv_din_stemme.donate_page_text' => $form_state->getValue('donate_page_text')['value'],
       'giv_din_stemme.thank_you_text' => $form_state->getValue('thank_you_text')['value'],
+      'giv_din_stemme.api_docs_text' => $form_state->getValue('api_docs_text')['value'],
       'giv_din_stemme.permissions_help_page' => $form_state->getValue('permissions_help_page'),
       'giv_din_stemme.additional_microphone_permissions_help_page' => $form_state->getValue('additional_microphone_permissions_help_page'),
     ]);

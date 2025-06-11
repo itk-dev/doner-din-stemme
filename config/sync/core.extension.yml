@@ -14,6 +14,11 @@ module:
   giv_din_stemme: 0
   itk_admin: 0
   itk_openid_connect_interpreter: 0
+  jsonapi: 0
+  jsonapi_defaults: 0
+  jsonapi_extras: 0
+  jsonapi_include: 0
+  key_auth: 0
   language: 0
   locale: 0
   mysql: 0
@@ -23,6 +28,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  serialization: 0
   system: 0
   text: 0
   token: 0
@@ -33,6 +39,7 @@ module:
   web_accessibility_statement: 0
   pathauto: 1
   externalauth: 10
+  views: 10
   minimal: 1000
 theme:
   stark: 0
