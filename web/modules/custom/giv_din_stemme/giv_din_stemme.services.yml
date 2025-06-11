@@ -27,6 +27,6 @@ services:
       - '@database'
       - '@file_system'
 
-  Drupal\giv_din_stemme\Routing\RouteSubscribe:
+  Drupal\giv_din_stemme\Routing\RouteSubscriber:
     tags:
       - { name: event_subscriber }
