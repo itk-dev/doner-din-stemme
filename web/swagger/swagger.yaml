@@ -51,6 +51,18 @@ paths:
             placeholder: asd
           required: false
           description: A timestamp to filter by.
+        - name: 'page[offset]'
+          in: query
+          schema:
+            type: string
+          required: false
+          description: An offset of the list of selected entities. Default is 0.
+        - name: 'page[limit]'
+          in: query
+          schema:
+            type: string
+          required: false
+          description: The number of results to display. Default is 50. Max is 50.
       tags:
         - Donation
       responses:
