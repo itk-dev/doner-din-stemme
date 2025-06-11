@@ -183,13 +183,14 @@ function giv_din_stemme_file_download($uri) {
 
     if ($file) {
       $headers = file_get_content_headers($file);
-      $headers['Content-Disposition'] = 'attachment; filename=' . \Drupal::service('file_url_generator')
-        ->generateAbsoluteString($uri);
+      $headers['Content-Disposition'] = 'attachment; filename=' . $file->getFilename();
 
       new BinaryFileResponse($uri, 200, $headers);
     }
 
   }
+
+  return NULL;
 }
 
 /**
