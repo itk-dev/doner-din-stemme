@@ -1,0 +1,149 @@
+uuid: 62622194-77c1-4d10-b9f3-19c5fee70ec0
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user--user
+disabled: true
+path: user/user
+resourceType: user--user
+resourceFields:
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  preferred_langcode:
+    disabled: false
+    fieldName: preferred_langcode
+    publicName: preferred_langcode
+    enhancer:
+      id: ''
+  preferred_admin_langcode:
+    disabled: false
+    fieldName: preferred_admin_langcode
+    publicName: preferred_admin_langcode
+    enhancer:
+      id: ''
+  name:
+    disabled: false
+    fieldName: name
+    publicName: name
+    enhancer:
+      id: ''
+  pass:
+    disabled: false
+    fieldName: pass
+    publicName: pass
+    enhancer:
+      id: ''
+  mail:
+    disabled: false
+    fieldName: mail
+    publicName: mail
+    enhancer:
+      id: ''
+  timezone:
+    disabled: false
+    fieldName: timezone
+    publicName: timezone
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  access:
+    disabled: false
+    fieldName: access
+    publicName: access
+    enhancer:
+      id: ''
+  login:
+    disabled: false
+    fieldName: login
+    publicName: login
+    enhancer:
+      id: ''
+  init:
+    disabled: false
+    fieldName: init
+    publicName: init
+    enhancer:
+      id: ''
+  roles:
+    disabled: false
+    fieldName: roles
+    publicName: roles
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  field_birth_year:
+    disabled: false
+    fieldName: field_birth_year
+    publicName: field_birth_year
+    enhancer:
+      id: ''
+  field_dialects:
+    disabled: false
+    fieldName: field_dialects
+    publicName: field_dialects
+    enhancer:
+      id: ''
+  field_e_mail:
+    disabled: false
+    fieldName: field_e_mail
+    publicName: field_e_mail
+    enhancer:
+      id: ''
+  field_gender:
+    disabled: false
+    fieldName: field_gender
+    publicName: field_gender
+    enhancer:
+      id: ''
+  field_postal_code:
+    disabled: false
+    fieldName: field_postal_code
+    publicName: field_postal_code
+    enhancer:
+      id: ''

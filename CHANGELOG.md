@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.2.0] - 2025-05-20
+
+* [PR-48](https://github.com/itk-dev/giv-din-stemme/pull/48)
+  * Add API.
+
 ## [1.1.0] - 2025-03-13
 
 * [PR-57](https://github.com/itk-dev/doner-din-stemme/pull/57)
