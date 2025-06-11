@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ApiDocsController extends ControllerBase {
 
   /**
-   * Givdinstemme constructor.
+   * ApiDocsController constructor.
    *
    * @param \Drupal\Core\State\State $state
    *   The object state.
