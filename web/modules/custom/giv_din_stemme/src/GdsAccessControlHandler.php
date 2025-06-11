@@ -21,10 +21,7 @@ class GdsAccessControlHandler extends EntityAccessControlHandler {
     // Check the operation being performed.
     switch ($operation) {
       case 'view':
-        if ($account->hasPermission('access giv din stemme view')) {
-          return AccessResult::allowed();
-        }
-        return AccessResult::neutral();
+        return AccessResult::allowedIf($account->hasPermission('access giv din stemme view')); 
 
       default:
         // For other operations, fall back to the default checkAccess method.
