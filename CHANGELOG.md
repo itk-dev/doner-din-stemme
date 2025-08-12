@@ -8,10 +8,13 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-65](https://github.com/itk-dev/doner-din-stemme/pull/65)
+  * Deny access to gs entities without files.
+
 ## [1.2.1] - 2025-06-11
 
 * [PR-49](https://github.com/itk-dev/giv-din-stemme/pull/49)
-    * Add API filter for page.offset and page.limit
+  * Add API filter for page.offset and page.limit
 
 ## [1.2.0] - 2025-05-20
 
