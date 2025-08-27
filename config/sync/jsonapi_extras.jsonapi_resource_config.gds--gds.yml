@@ -9,6 +9,9 @@ third_party_settings:
   jsonapi_defaults:
     default_include:
       - file
+    default_filter:
+      'filter:file-exists-filter#condition#path': file
+      'filter:file-exists-filter#condition#operator': 'IS NOT NULL'
     page_limit: 50
 id: gds--gds
 disabled: false
@@ -67,5 +70,23 @@ resourceFields:
     disabled: false
     fieldName: changed
     publicName: changed
+    enhancer:
+      id: ''
+  whisper_guess:
+    disabled: false
+    fieldName: whisper_guess
+    publicName: whisper_guess
+    enhancer:
+      id: ''
+  whisper_guess_word_error_rate:
+    disabled: false
+    fieldName: whisper_guess_word_error_rate
+    publicName: whisper_guess_word_error_rate
+    enhancer:
+      id: ''
+  whisper_guess_character_error_rate:
+    disabled: false
+    fieldName: whisper_guess_character_error_rate
+    publicName: whisper_guess_character_error_rate
     enhancer:
       id: ''
