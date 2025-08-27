@@ -10,7 +10,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [1.2.3] -2025-08-27
 
-* [PR-65](https://github.com/itk-dev/doner-din-stemme/pull/65)
+* [PR-66](https://github.com/itk-dev/doner-din-stemme/pull/66)
 
 ## [1.2.2] -2025-08-12
 
