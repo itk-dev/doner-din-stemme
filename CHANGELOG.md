@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.2.4] - 2026-04-16
+
+* [PR-67](https://github.com/itk-dev/doner-din-stemme/pull/67)
+  Upgraded to Drupal `11.3.7`
+
 ## [1.2.3] -2025-08-27
 
 * [PR-66](https://github.com/itk-dev/doner-din-stemme/pull/66)
@@ -130,7 +135,12 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.4...HEAD
+[1.2.4]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.3...1.2.4
+[1.2.3]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.2...1.2.3
+[1.2.2]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.1...1.2.2
+[1.2.1]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/itk-dev/doner-din-stemme/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.4...1.1.0
 [1.0.4]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/itk-dev/doner-din-stemme/compare/1.0.2...1.0.3
