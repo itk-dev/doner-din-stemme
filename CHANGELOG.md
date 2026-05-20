@@ -11,7 +11,8 @@ See [keep a changelog] for information about writing changes to this log.
 ## [1.2.5] - 2026-05-20
 
 * [PR-68](https://github.com/itk-dev/doner-din-stemme/pull/68)
-  Upgraded to Drupal `11.3.9`
+  * Upgraded to Drupal `11.3.9`
+  * Removed stg woodpecker workflow.
 
 ## [1.2.4] - 2026-04-16
 
