@@ -9,7 +9,6 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html"
     },
     "require": {
-        "chx/drupal-issue-fork": "dev-main",
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^11.0",
@@ -55,7 +54,6 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "chx/drupal-issue-fork": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,

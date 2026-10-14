@@ -12,6 +12,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 * [PR-70](https://github.com/itk-dev/doner-din-stemme/pull/70)
   * Security upgraded Drupal 11.3.11 => 11.4.10
+  * Remove chx/drupal-issue-fork
 
 ## [1.2.6] - 2026-06-16
 
