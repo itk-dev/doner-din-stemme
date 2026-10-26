@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.2.8] - 2026-10-26
+
+* [PR-71](https://github.com/itk-dev/doner-din-stemme/pull/71)
+  * Use maintained `nginx/nginx-unprivileged` image
+
 ## [1.2.7] - 2026-10-14
 
 * [PR-70](https://github.com/itk-dev/doner-din-stemme/pull/70)
@@ -152,7 +157,8 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.7...HEAD
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.8...HEAD
+[1.2.8]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.7...1.2.8
 [1.2.7]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.5...1.2.6
 [1.2.5]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.4...1.2.5
