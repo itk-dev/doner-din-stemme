@@ -8,6 +8,12 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-72](https://github.com/itk-dev/doner-din-stemme/pull/72)
+  * Check config export, update hooks and schema in CI
+  * Updated drush 13.6.0 => 13.8.0 (batch callbacks on Drupal 11.4)
+  * Fail composer install when a patch does not apply
+  * Removed core patch for config langcodes (no longer applies to Drupal 11.4)
+
 ## [1.2.8] - 2026-10-26
 
 * [PR-71](https://github.com/itk-dev/doner-din-stemme/pull/71)

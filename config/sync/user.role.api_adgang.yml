@@ -8,7 +8,7 @@ dependencies:
 id: api_adgang
 label: 'Api adgang'
 weight: 3
-is_admin: null
+is_admin: false
 permissions:
   - 'access giv din stemme view'
   - 'use key authentication'
