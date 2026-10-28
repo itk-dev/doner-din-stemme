@@ -60,7 +60,7 @@ jobs:
           docker compose up --detach
 
           # Important: Use --no-interaction to make https://getcomposer.org/doc/06-config.md#discard-changes have effect.
-          docker compose exec phpfpm composer install --no-interaction
+          docker compose exec --env COMPOSER_EXIT_ON_PATCH_FAILURE=1 phpfpm composer install --no-interaction
 
       - name: Install site
         run: |
@@ -142,7 +142,7 @@ jobs:
           docker compose up --detach
 
           # Important: Use --no-interaction to make https://getcomposer.org/doc/06-config.md#discard-changes have effect.
-          docker compose exec phpfpm composer install --no-interaction
+          docker compose exec --env COMPOSER_EXIT_ON_PATCH_FAILURE=1 phpfpm composer install --no-interaction
 
       - name: Install site
         run: |
@@ -182,7 +182,7 @@ jobs:
           docker compose up --detach
 
           # Important: Use --no-interaction to make https://getcomposer.org/doc/06-config.md#discard-changes have effect.
-          docker compose exec phpfpm composer install --no-interaction
+          docker compose exec --env COMPOSER_EXIT_ON_PATCH_FAILURE=1 phpfpm composer install --no-interaction
 
       - name: Run database updates
         run: |
