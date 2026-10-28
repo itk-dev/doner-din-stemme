@@ -83,6 +83,8 @@ jobs:
           test -z "$(git status --porcelain config/)"
 
       - name: Check that config matches its schema
+        # Report schema errors even if the config is not up to date.
+        if: ${{ !cancelled() }}
         run: |
           if ! docker compose exec phpfpm composer show drupal/config_inspector > /dev/null 2>&1; then
             echo "::notice::drupal/config_inspector is not installed; skipping config schema check"
@@ -197,7 +199,7 @@ jobs:
             | sed -E 's#^.*:##' | sort -u > changed-in-db.txt
           comm -23 changed-in-db.txt changed-by-pr.txt > not-exported.txt
           if [ -s not-exported.txt ]; then
-            echo "::error::Config changed by update hooks has not been exported:"
+            echo "::error::Active config differs from config/sync (not changed by this pull request), e.g. config changed by update hooks that has not been exported:"
             cat not-exported.txt
             exit 1
           fi
