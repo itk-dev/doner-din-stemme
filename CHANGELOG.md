@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-72](https://github.com/itk-dev/doner-din-stemme/pull/72)
+  * Check config export, update hooks and schema in CI
+
 ## [1.2.8] - 2026-10-26
 
 * [PR-71](https://github.com/itk-dev/doner-din-stemme/pull/71)
