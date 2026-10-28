@@ -69,6 +69,8 @@ jobs:
           <?php
 
           $settings['hash_salt'] = '${{ github.head_ref }}';
+          // Do not download translations when installing modules.
+          $config['locale.settings']['translation']['import_enabled'] = FALSE;
           EOF
 
           # Install the site from config
@@ -149,6 +151,8 @@ jobs:
           <?php
 
           $settings['hash_salt'] = '${{ github.head_ref }}';
+          // Do not download translations when installing modules.
+          $config['locale.settings']['translation']['import_enabled'] = FALSE;
           EOF
 
           # Install the site from config
