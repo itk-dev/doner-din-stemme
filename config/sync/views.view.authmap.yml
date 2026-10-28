@@ -382,7 +382,6 @@ display:
           path_case: none
           transform_dash: false
           break_phrase: false
-          default_argument_skip_url: false
       filters:
         authname:
           id: authname
