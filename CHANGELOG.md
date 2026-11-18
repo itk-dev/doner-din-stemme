@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.2.9] - 2026-11-18
+
+* [PR-73](https://github.com/itk-dev/doner-din-stemme/pull/73)
+  * Prepared the Drupal core security update ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16))
+
 ## [1.2.8] - 2026-10-26
 
 * [PR-71](https://github.com/itk-dev/doner-din-stemme/pull/71)
@@ -157,7 +162,8 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.8...HEAD
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.9...HEAD
+[1.2.9]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.8...1.2.9
 [1.2.8]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.7...1.2.8
 [1.2.7]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.5...1.2.6
