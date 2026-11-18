@@ -8,6 +8,10 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+* [PR-74](https://github.com/itk-dev/doner-din-stemme/pull/74)
+  * Stop composer install when a patch does not apply
+    (`composer-exit-on-patch-failure`)
+
 ## [1.2.9] - 2026-11-18
 
 * [PR-73](https://github.com/itk-dev/doner-din-stemme/pull/73)
