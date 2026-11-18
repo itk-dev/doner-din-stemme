@@ -11,7 +11,9 @@ See [keep a changelog] for information about writing changes to this log.
 ## [1.2.9] - 2026-11-18
 
 * [PR-73](https://github.com/itk-dev/doner-din-stemme/pull/73)
-  * Prepared the Drupal core security update ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16))
+  * Security update drupal/core 11.4.10 => 11.4.13 ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16),
+    SA-CORE-2026-017, SA-CORE-2026-018)
+  * Updated masterminds/html5 and symfony/* packages that drupal/core-recommended 11.4.13 requires
 
 ## [1.2.8] - 2026-10-26
 
