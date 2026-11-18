@@ -14,6 +14,8 @@ See [keep a changelog] for information about writing changes to this log.
   * Security update drupal/core 11.4.10 => 11.4.13 ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16),
     SA-CORE-2026-017, SA-CORE-2026-018)
   * Updated masterminds/html5 and symfony/* packages that drupal/core-recommended 11.4.13 requires
+  * Replaced the core patch for [#3150540](https://www.drupal.org/project/drupal/issues/3150540)
+    with `drupal-3150540-60.patch`. The old patch did not apply.
 
 ## [1.2.8] - 2026-10-26
 
