@@ -16,6 +16,7 @@ See [keep a changelog] for information about writing changes to this log.
   * Updated masterminds/html5 and symfony/* packages that drupal/core-recommended 11.4.13 requires
   * Replaced the core patch for [#3150540](https://www.drupal.org/project/drupal/issues/3150540)
     with `drupal-3150540-60.patch`. The old patch did not apply.
+  * Set langcode `da` in the path alias language content settings, to match the config export
 
 ## [1.2.8] - 2026-10-26
 
