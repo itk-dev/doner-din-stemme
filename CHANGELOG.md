@@ -8,6 +8,16 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.2.9] - 2026-11-18
+
+* [PR-73](https://github.com/itk-dev/doner-din-stemme/pull/73)
+  * Security update drupal/core 11.4.10 => 11.4.13 ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16),
+    SA-CORE-2026-017, SA-CORE-2026-018)
+  * Updated masterminds/html5 and symfony/* packages that drupal/core-recommended 11.4.13 requires
+  * Replaced the core patch for [#3150540](https://www.drupal.org/project/drupal/issues/3150540)
+    with `drupal-3150540-60.patch`. The old patch did not apply.
+  * Set langcode `da` in the path alias language content settings, to match the config export
+
 ## [1.2.8] - 2026-10-26
 
 * [PR-71](https://github.com/itk-dev/doner-din-stemme/pull/71)
@@ -157,7 +167,8 @@ See [keep a changelog] for information about writing changes to this log.
   Mobile optimization.
 * Initial project.
 
-[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.8...HEAD
+[Unreleased]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.9...HEAD
+[1.2.9]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.8...1.2.9
 [1.2.8]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.7...1.2.8
 [1.2.7]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/itk-dev/doner-din-stemme/compare/1.2.5...1.2.6
